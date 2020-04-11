@@ -1,0 +1,35 @@
+// highest_frequency in array 
+
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+using namespace std ;
+int frequency(int *a,int size){
+    unordered_map<int,int>map ;
+    vector<int>output ;
+    for(int i = 0; i < size; i++){
+        int key = a[i] ;
+        if(map.count(key) == 0){
+            map[key] = 1 ;
+        }
+        else{
+            map[key]++ ;
+        }
+    }
+    int max = map[a[0]] ;
+    int ans = a[0] ;
+    int j = 1 ;
+    while(j<size){
+        if(map[a[j]] > max){
+            max = map[a[j]] ;
+            ans = a[j] ;
+        }
+        j++ ;
+    }
+    return ans ;
+}
+int main(){
+    int a[] = {1,2,2,4,5,1,2,3,8,9,10} ;
+    int highfreq = frequency (a,11) ;
+    cout << highfreq ;
+}
