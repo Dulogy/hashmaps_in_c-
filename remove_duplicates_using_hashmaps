@@ -1,0 +1,25 @@
+// remove_duplicates_using_hashmaps 
+
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+using namespace std ;
+vector<int>remove_duplicates(int *a,int size){
+    unordered_map<int,bool>map ;
+    vector<int>output ;
+    for(int i = 0; i < size; i++){
+        if(map.count(a[i]) > 0){
+            continue ;
+        }
+        map[a[i]] = true    ;
+        output.push_back(a[i]) ;
+    }
+    return output ;
+}
+int main(){
+    int a[] = {1,2,3,4,5,1,2,3,8,9,10} ;
+    vector<int>output = remove_duplicates(a,11) ;
+    for(int i = 0; i < output.size(); i++){
+        cout << output[i] << " " ;
+    }
+}
