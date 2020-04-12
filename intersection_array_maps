@@ -35,5 +35,7 @@ int main(){
         cin >> b[i] ;
     }
     intersection(a,b,size1,size2) ;
+    delete[] a ;
+    delete[] b ;
 
 }
